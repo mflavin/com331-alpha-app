@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_17_043527) do
+ActiveRecord::Schema.define(version: 2019_03_03_234814) do
 
-  create_table "salaries", force: :cascade do |t|
-    t.string "name"
-    t.decimal "salary_annual", precision: 8, scale: 2
-    t.decimal "salary_hourly", precision: 8, scale: 2
+  create_table "days", force: :cascade do |t|
+    t.string "day_of_week"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weeks", force: :cascade do |t|
+    t.string "counting_week"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weights", force: :cascade do |t|
+    t.string "workout"
+    t.integer "amount_of_weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
