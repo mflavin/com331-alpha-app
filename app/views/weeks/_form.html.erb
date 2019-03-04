@@ -11,6 +11,19 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :counting_week %>
+    <%= form.text_field :counting_week %>
+  </div>
+
+  <p>Days</p>
+  <%= form.fields_for :days do |d| %>
+    <div class="field">
+      <%= d.label :day_of_week %>
+      <%= d.text_field :day_of_week %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

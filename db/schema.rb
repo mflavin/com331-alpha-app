@@ -14,8 +14,12 @@ ActiveRecord::Schema.define(version: 2019_03_03_234814) do
 
   create_table "days", force: :cascade do |t|
     t.string "day_of_week"
+    t.integer "days_id"
+    t.integer "week_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["days_id"], name: "index_days_on_days_id"
+    t.index ["week_id"], name: "index_days_on_week_id"
   end
 
   create_table "weeks", force: :cascade do |t|

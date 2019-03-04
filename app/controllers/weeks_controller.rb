@@ -15,6 +15,7 @@ class WeeksController < ApplicationController
   # GET /weeks/new
   def new
     @week = Week.new
+    2.times {@week.days.build}
   end
 
   # GET /weeks/1/edit
@@ -32,7 +33,7 @@ class WeeksController < ApplicationController
         format.json { render :show, status: :created, location: @week }
       else
         format.html { render :new }
-        format.json { render json: @week.errors, status: :unprocessable_entity }
+	format.json { render json: @week.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +70,6 @@ class WeeksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def week_params
-      params.fetch(:week, {})
+	    params.require(:week).permit(:counting_week, days_attributes: [:days_id, :day_of_week])
     end
 end
