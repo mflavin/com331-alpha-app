@@ -10,12 +10,17 @@ class WeeksController < ApplicationController
   # GET /weeks/1
   # GET /weeks/1.json
   def show
+    @week = Week.find(params[:id])
+    @week.days.build
+    respond_to do |format|
+      format.html
+      format.json { render json: @week }
+    end
   end
 
   # GET /weeks/new
   def new
     @week = Week.new
-    2.times {@week.days.build}
   end
 
   # GET /weeks/1/edit

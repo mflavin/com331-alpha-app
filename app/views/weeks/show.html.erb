@@ -2,16 +2,5 @@
 
 <h1><%= @week.counting_week %></h1>
 
-<h2>Days</h2>
-<% if @week.days.any? %>
-  <ul>
-  <% @week.days.each do |day| %>
-    <li><%= link_to day, day %></li>
-  <% end %>
-  </ul>
-  <% else %>
-  <p>No Days Entered</p>
-<% end %>
-
 <%= link_to 'Edit', edit_week_path(@week) %> |
 <%= link_to 'Back', weeks_path %>
