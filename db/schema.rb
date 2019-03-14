@@ -14,11 +14,9 @@ ActiveRecord::Schema.define(version: 2019_03_03_234814) do
 
   create_table "days", force: :cascade do |t|
     t.string "day_of_week"
-    t.integer "days_id"
     t.integer "week_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["days_id"], name: "index_days_on_days_id"
     t.index ["week_id"], name: "index_days_on_week_id"
   end
 
@@ -31,8 +29,10 @@ ActiveRecord::Schema.define(version: 2019_03_03_234814) do
   create_table "weights", force: :cascade do |t|
     t.string "workout"
     t.integer "amount_of_weight"
+    t.integer "day_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["day_id"], name: "index_weights_on_day_id"
   end
 
 end
