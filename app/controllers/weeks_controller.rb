@@ -11,7 +11,6 @@ class WeeksController < ApplicationController
   # GET /weeks/1.json
   def show
     @week = Week.find(params[:id])
-    @week.days.build
     respond_to do |format|
       format.html
       format.json { render json: @week }
@@ -75,6 +74,6 @@ class WeeksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def week_params
-	    params.require(:week).permit(:counting_week, days_attributes: [:days_id, :day_of_week])
+	    params.require(:week).permit(:counting_week)
     end
 end
