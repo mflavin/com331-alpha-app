@@ -1,4 +1,6 @@
 %p#notice= notice
-= link_to 'Edit', edit_day_path(@day)
+%h1= @day.day_of_week
+
+= link_to 'Edit', edit_week_day_path(@day.week, @day)
 |
-= link_to 'Back', days_path
+= link_to 'Back', week_days_path(@day.week)

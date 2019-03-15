@@ -7,8 +7,12 @@
   %tbody
     - @days.each do |day|
       %tr
-        %td= link_to 'Show', day
-        %td= link_to 'Edit', edit_day_path(day)
-        %td= link_to 'Destroy', day, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= day.day_of_week
+
+        %td= link_to 'Show', [day.week, day]
+        %td= link_to 'Edit', edit_week_day_path(day.week, day)
+        %td= link_to 'Destroy', [day.week, day], method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Day', new_day_path
+= link_to 'New Day', new_week_day_path
+|
+= link_to 'Back to Weeks', weeks_path
