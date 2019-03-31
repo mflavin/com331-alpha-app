@@ -22,7 +22,7 @@ WeightRep.destroy_all
 @wOneReps = WeightRep.create!(
   numb_of_reps: 12,
   amount_of_weight: 35,
-  weight_set: @wOneSets,
+  workout: @wOne,
 )
 
 
@@ -38,7 +38,7 @@ WeightRep.destroy_all
 @wTwoReps = WeightRep.create!(
   numb_of_reps: 8,
   amount_of_weight: 55,
-  weight_set: @wTwoSets,
+  workout: @wTwo,
 )
 
 
@@ -54,5 +54,5 @@ WeightRep.destroy_all
 @wThreeReps = WeightRep.create!(
   numb_of_reps: 10,
   amount_of_weight: 30,
-  weight_set: @wThreeSets,
+  workout: @wThree,
 )

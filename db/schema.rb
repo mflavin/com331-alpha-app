@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 2019_03_31_142706) do
   create_table "weight_reps", force: :cascade do |t|
     t.integer "numb_of_reps"
     t.integer "amount_of_weight"
-    t.integer "weight_set_id"
+    t.integer "workout_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["weight_set_id"], name: "index_weight_reps_on_weight_set_id"
+    t.index ["workout_id"], name: "index_weight_reps_on_workout_id"
   end
 
   create_table "weight_sets", force: :cascade do |t|
