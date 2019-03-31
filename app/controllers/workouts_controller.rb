@@ -1,15 +1,10 @@
 class WorkoutsController < ApplicationController
-  before_action :set_workout, only: [:show, :edit, :update, :destroy]
+  before_action :set_workout, only: [:edit, :update, :destroy]
 
   # GET /workouts
   # GET /workouts.json
   def index
     @workouts = Workout.all
-  end
-
-  # GET /workouts/1
-  # GET /workouts/1.json
-  def show
   end
 
   # GET /workouts/new
@@ -29,7 +24,7 @@ class WorkoutsController < ApplicationController
     respond_to do |format|
       if @workout.save
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
-        format.json { render :show, status: :created, location: @workout }
+        format.json { render :index, status: :created, location: @workout }
       else
         format.html { render :new }
         format.json { render json: @workout.errors, status: :unprocessable_entity }
@@ -43,10 +38,10 @@ class WorkoutsController < ApplicationController
     respond_to do |format|
       if @workout.update(workout_params)
         format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }
-        format.json { render :show, status: :ok, location: @workout }
+        format.json { render :index, status: :ok, location: @workout }
       else
         format.html { render :edit }
-        format.json { render json: @workout.errors, status: :unprocessable_entity }
+        format.json { render index: @workout.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +64,6 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.fetch(:workout, {})
+      params.require(:workout).permit(:workout_name, :numb_of_sets, :numb_of_reps, :amount_of_weight)
     end
 end
