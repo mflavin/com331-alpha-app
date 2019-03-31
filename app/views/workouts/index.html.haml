@@ -5,11 +5,11 @@
     %ul
       %h3= workout.workout_name
       %li= "Number of Sets"
-      %li= workout.weight_set.numb_of_sets
+      %li= workout.numb_of_sets
       %li= "Number of Reps"
-      %li= workout.weight_set.weight_rep.numb_of_reps
+      %li= workout.numb_of_reps
       %li= "Amount of Weight"
-      %li= workout.weight_set.weight_rep.amount_of_weight
+      %li= workout.amount_of_weight
 
       %li= link_to 'Edit', edit_workout_path(workout)
       %li= link_to 'Delete', workout, method: :delete, data: { confirm: 'Are you sure?' }
