@@ -24,3 +24,35 @@ WeightRep.destroy_all
   amount_of_weight: 35,
   weight_set: @wOneSets,
 )
+
+
+@wTwo = Workout.create!(
+  workout_name: "Bench Press"
+)
+
+@wTwoSets = WeightSet.create!(
+  numb_of_sets: 4,
+  workout: @wTwo,
+)
+
+@wTwoReps = WeightRep.create!(
+  numb_of_reps: 8,
+  amount_of_weight: 55,
+  weight_set: @wTwoSets,
+)
+
+
+@wThree = Workout.create!(
+  workout_name: "Skull Crushers"
+)
+
+@wThreeSets = WeightSet.create!(
+  numb_of_sets: 5,
+  workout: @wThree,
+)
+
+@wThreeReps = WeightRep.create!(
+  numb_of_reps: 10,
+  amount_of_weight: 30,
+  weight_set: @wThreeSets,
+)
