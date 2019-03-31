@@ -10,29 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_03_234814) do
+ActiveRecord::Schema.define(version: 2019_03_31_142706) do
 
-  create_table "days", force: :cascade do |t|
-    t.string "day_of_week"
-    t.integer "week_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["week_id"], name: "index_days_on_week_id"
-  end
-
-  create_table "weeks", force: :cascade do |t|
-    t.string "counting_week"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "weights", force: :cascade do |t|
-    t.string "workout"
+  create_table "weight_reps", force: :cascade do |t|
+    t.integer "numb_of_reps"
     t.integer "amount_of_weight"
-    t.integer "day_id"
+    t.integer "weight_set_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["day_id"], name: "index_weights_on_day_id"
+    t.index ["weight_set_id"], name: "index_weight_reps_on_weight_set_id"
+  end
+
+  create_table "weight_sets", force: :cascade do |t|
+    t.integer "numb_of_sets"
+    t.integer "workout_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["workout_id"], name: "index_weight_sets_on_workout_id"
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.string "workout_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
