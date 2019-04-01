@@ -1,17 +1,21 @@
 %p#notice= notice
 %h1 Workouts
-- @workouts.each do |workout|
-  %section.testClass
-    %ul
+%article.container
+  - @workouts.each do |workout|
+    %section.workouts
       %h3= workout.workout_name
-      %li= "Number of Sets"
-      %li= workout.numb_of_sets
-      %li= "Number of Reps"
-      %li= workout.numb_of_reps
-      %li= "Amount of Weight"
-      %li= workout.amount_of_weight
-
-      %li= link_to 'Edit', edit_workout_path(workout)
-      %li= link_to 'Delete', workout, method: :delete, data: { confirm: 'Are you sure?' }
+      %ul
+        %li.items
+          %p= "Number of Sets"
+          %p.values= workout.numb_of_sets
+        %li.items
+          %p= "Number of Reps"
+          %p.values= workout.numb_of_reps
+        %li.items
+          %p= "Amount of Weight"
+          %p.values= workout.amount_of_weight
+        %li.actions
+          = link_to 'Edit', edit_workout_path(workout), class:"edit"
+          = link_to 'Delete', workout, method: :delete, data: { confirm: 'Are you sure?' }, class:"delete"
 %br/
-= link_to 'New Workout', new_workout_path
+= link_to 'New Workout', new_workout_path, id:"new"
